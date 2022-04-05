@@ -5,37 +5,33 @@
 // allow modularity of cell count
 // use hover events to change cell background color
 
+// Inputs 
+
+const DEFAULT_SIZE = 16;
+const RESET_GRID = 0;
+
+
 
 // Create Grid
 
 
-const rows = 16;
-const columns = 16;
-
-for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < columns; j++) {
+for (let i = 0; i < DEFAULT_SIZE; i++) {
+    for (let j = 0; j < DEFAULT_SIZE; j++) {
         let cell = document.createElement('div');
         cell.classList.add('cell');
-        cell.style['flex-basis'] = ((100 / rows) + '%');
+        console.log(cell.outerHTML);
+        cell.style['flex-basis'] = ((100 / DEFAULT_SIZE) + '%');
         aGrid.appendChild(cell);
     }
 }
 
-
-const divs = document.querySelectorAll('div.cell');
-
-
-
-function draw() {
-    divs.forEach(cell => cell.style.backgroundColor = 'red');
-    console.log(this.classList.value);
-}
-
-divs.forEach(div => div.addEventListener('mouseover', draw));
-
-
-
+// Select a Single Square - 'Draw'
 // Hover Event
+
+aGrid.addEventListener('mouseover', function (cell) {
+    cell.target.classList.add('draw-black');
+    cell.stopPropagation();
+});
 
 // Random Color
 
