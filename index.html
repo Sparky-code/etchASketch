@@ -15,22 +15,28 @@
 <body>
     <!--Title & header bar-->
     <div>
-        <h1 id="header">Header</h1>
+        <h1 id="header">Etch-a-Sketch</h1>
         <div id="container">
-            <!--Div grid made with JS-->
-            <div id="aGrid"></div>
-            <!--Change curser effects & clear-->
             <div>
-                <div id="options">Options
-                    <button>Black</button>
-                    <button>Gradient</button>
-                    <input type="color" id="colorPicker" value="#ff0000">
-                    <button>Random</button>
-                    <button>Clear</button>
+                <div>
+                    <div class="options">
+                        <!--<input type="color" id="colorPicker" value="#00FF00">-->
+                        <button id="drawBlack">Black</button>
+                        <!-- <button id="drawGradient">Gradient</button> -->
+                        <button id="drawRandom">Random</button>
+                        <button id="resetGrid">Clear</button>
+                    </div>
                 </div>
-                <div>Grid Density<input></div>
             </div>
+            <div id="frame">
+                <!--Div grid made with JS-->
+                <div id="aGrid"></div>
+            </div>
+            <!--<div><button id="gridDensity" name="Grid Density">
+                    <label for="Grid Density">Grid Density</label>-->
         </div>
+    </div>
+    <div id="footer">Copyright 2022 @sparky-code</div>
 </body>
 
 </html>

@@ -1,42 +1,95 @@
-// Sparky-code on Github //
 
-// create a series of cells as divs with JS
-// define cells as a square grid of subcells (16x16)
-// allow modularity of cell count
-// use hover events to change cell background color
+// select html buttons
 
-// Inputs 
+const drawBlack = document.getElementById('drawBlack');
+const drawGradient = document.getElementById('drawGradient');
+const drawRandom = document.getElementById('drawRandom');
+const drawColor = document.getElementById('colorPicker');
+const resetGrid = document.getElementById('resetGrid');
+const gridDensity = document.getElementById('gridDensity');
 
-const DEFAULT_SIZE = 16;
-const RESET_GRID = 0;
+// set variable default value
 
+let color = '#000000';
+let defaultGrid = 16;
+let defaultMode = color;
 
+// The Grid
 
-// Create Grid
-
-
-for (let i = 0; i < DEFAULT_SIZE; i++) {
-    for (let j = 0; j < DEFAULT_SIZE; j++) {
-        let cell = document.createElement('div');
-        cell.classList.add('cell');
-        console.log(cell.outerHTML);
-        cell.style['flex-basis'] = ((100 / DEFAULT_SIZE) + '%');
-        aGrid.appendChild(cell);
+function createGrid(gridSize) {
+    gridSize = prompt('Enter a value between 2-64', defaultGrid);
+    if (gridSize != null) {
+        for (let i = 0; i < gridSize; i++) {
+            for (let j = 0; j < gridSize; j++) {
+                let cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.style['flex-basis'] = ((100 / gridSize) + '%');
+                aGrid.appendChild(cell);
+            }
+        }
+    } else if (gridSize != Number) {
+        gridSize = defaultGrid;
+        for (let i = 0; i < gridSize; i++) {
+            for (let j = 0; j < gridSize; j++) {
+                let cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.style['flex-basis'] = ((100 / gridSize) + '%');
+                aGrid.appendChild(cell);
+            }
+        }
     }
 }
+createGrid()
 
-// Select a Single Square - 'Draw'
-// Hover Event
+// Change drawing color
 
-aGrid.addEventListener('mouseover', function (cell) {
-    cell.target.classList.add('draw-black');
-    cell.stopPropagation();
-});
+// Black
 
-// Random Color
+drawBlack.addEventListener('click', function () {
+    document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
+        cell.target.style.background = 'rgb(0, 0, 0)';
+    })
+})
 
-// Shades of Grey
+// // +10% Gradient Black
 
-// Shimmer
+// drawGradient.addEventListener('click', function () {
+//     document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
+//         cell.target.style.background = 'rgb(0, 0, 0)';
+//     })
+// })
 
-// Paint by numbers?
+// https://stackoverflow.com/questions/48533565/change-css-rgba-background-colors-alpha-value-using-js
+
+// Draw Random Colors
+
+drawRandom.addEventListener('click', function () {
+    document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        cell.target.style.background = '#' + randomColor;
+    })
+})
+
+// // Pick Any Color
+// drawColor.addEventListener('click', function () {
+//     document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
+//         cell.target.style.background = anyColor;
+//     })
+// })
+
+
+// Clear Grid
+
+resetGrid.addEventListener('click', function () {
+    let scrub = document.getElementsByClassName('cell');
+    Array.from(scrub).forEach(function (cell) { cell.remove() });
+    createGrid();
+})
+
+// // Change Grid Density
+
+// gridDensity.addEventListener('click', function () {
+//     createGrid();
+// });
+
+// Say Hi @ https://dev.to/sparkycode
