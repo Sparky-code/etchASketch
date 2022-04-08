@@ -70,12 +70,13 @@ drawRandom.addEventListener('click', function () {
     })
 })
 
-// // Pick Any Color
-// drawColor.addEventListener('click', function () {
-//     document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
-//         cell.target.style.background = anyColor;
-//     })
-// })
+// Pick Any Color
+drawColor.addEventListener('input', function () {
+    let anyColor = document.getElementById('colorPicker').value;
+    document.getElementById('aGrid').addEventListener('mouseover', function (cell) {
+        cell.target.style.background = anyColor;
+    })
+})
 
 
 // Clear Grid

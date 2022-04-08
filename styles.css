@@ -1,11 +1,11 @@
 /* Stylesheet */
 
 body {
-    height: 100%;
+    overflow: hidden;
     position: relative;
     background-color: azure;
     color: rgb(0, 0, 0);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
@@ -20,9 +20,14 @@ button {
 }
 
 input[type=color] {
-    width: 100px;
-    height: 40px;
+    border: none;
     border-radius: 7px;
+    padding: 0;
+    width: 100px;
+    height: 20px;
+    border-radius: 100%;
+    margin: 10px;
+
 }
 
 input[type=number] {
@@ -91,10 +96,6 @@ input[type=number] {
     margin-bottom: 0;
 }
 
-.disabled {
-    pointer-events: none;
-}
-
 #aGrid {
     height: 800px;
     width: 800px;
@@ -112,30 +113,26 @@ input[type=number] {
     background-color: #ffffff00;
 }
 
-.draw-black {
-    background-color: rgb(0, 0, 0);
-}
 
-
-
-.draw-random {
-    background-color: blue;
-}
-
-#color-picker {
-    height: 200px;
-    width: 200px;
-    border: solid 0.25px black;
-    margin: 20px;
+p {
+    padding: 5px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    bottom: 0;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    /* no underline */
+}
+
+.signature {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    position: relative;
-    font-size: 1em;
-    color: rgb(82, 72, 60);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    z-index: -1;
-
+    font-family: Arial, Helvetica, sans-serif;
 }
